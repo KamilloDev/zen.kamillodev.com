@@ -8,6 +8,47 @@
     
 }
 
+.text {
+    color: hsl(210deg 10% 90%);
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: large;
+}
+
+.links {
+    color: hsl(210deg 10% 90%);
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-size: large;
+    text-align: center;
+}
+
+label {
+    color: hsl(210deg 10% 90%);
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: large;
+}
+
 body {
     background-color: hsl(210deg 15% 6%);
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 25px;
+    margin: auto;
+    width: 50%;
+    padding: 3%;
+    background-color: hsla(218, 14%, 11%, 0.75);
+    border: 25px solid hsla(218, 14%, 11%, 0.75);
+    
+}
+
