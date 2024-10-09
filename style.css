@@ -1,0 +1,13 @@
+.title {
+    color: hsl(280deg 100% 85%);
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    font-size: 35px;
+    
+}
+
+body {
+    background-color: hsl(210deg 15% 6%);
+}
