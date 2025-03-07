@@ -1,54 +1,96 @@
 .title {
-    color: hsl(280deg 100% 85%);
+    color: 	#ffdd91;
     font-family: "Ubuntu", sans-serif;
     font-weight: 400;
     font-style: normal;
-    text-align: center;
-    font-size: 35px;
+    font-size: 2.5rem;
     
-}
-
-.text {
-    color: hsl(210deg 10% 90%);
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    font-size: large;
-}
-
-.links {
-    color: hsl(210deg 10% 90%);
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 400;
-    font-size: large;
-    text-align: center;
-}
-
-label {
-    color: hsl(210deg 10% 90%);
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    text-align: center;
-    font-size: large;
 }
 
 body {
     background-color: hsl(210deg 15% 6%);
+    font-family: "ubuntu", sans-serif;
+    font-size: 1.8rem;
+    color: #d6b2a5;
 }
 
-.center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 25px;
-    margin: auto;
-    width: 50%;
-    padding: 3%;
-    background-color: hsla(218, 14%, 11%, 0.75);
-    border: 25px solid hsla(218, 14%, 11%, 0.75);
-    
+main {
+    width: auto;
+    margin: 30px;
+}
+
+button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #b093a3;
+    padding: 5px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+div#game {
+    margin-left: 2%;
+    line-height: 45px;
+    height: 135px;
+    overflow: hidden;
+    position: relative;
+}
+
+div.word {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+#words {
+    color: rgba(255, 255, 255, 0.199);
+    filter: blur(5px);
+}
+
+#game:focus #words {
+    filter: blur(0);
+}
+
+#focus-error {
+    position: absolute;
+    inset: 0;
+    color: #b093a3;
+    margin-left: 40.5%;
+    padding-top: 45px;
+}
+
+#game:focus #focus-error {
+    display: none;
+}
+
+#moon {
+    width: 40px;
+    fill: #d6b2a5;
+}
+
+#restart {
+    width: 30px;
+    fill: #1b1b1b63;
+}
+
+
+#header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 6px 30px;
+}
+
+#buttons {
+    text-align: right;
+}
+
+#bottomheader {
+    margin-top: 2%;
+    margin-right: 49%;
+
+}
+
+#info {
+    margin-left: 3.7%;
 }
 
