@@ -27,15 +27,19 @@ function restart() {
     }
     addClass(document.querySelector('.word'), 'current');
     addClass(document.querySelector('.letter'), 'current');
+    const cursor = document.getElementById('cursor')
+    cursor.style.top = 191 + 'px';
+    cursor.style.left = 80 + 'px';
 }
 
-document.getElementById('game').addEventListener('keyup', ev => {
+document.getElementById('game').addEventListener('keydown', ev => {
     const key = ev.key;
     const currentLetter = document.querySelector('.letter.current');
     const currentWord = document.querySelector('.word.current');
     const expected = currentLetter?.innerHTML || '  ';
     const isLetter = key.length === 1 && key !== ' ';
     const isSpace = key === ' ';
+    const isBackspace = key === 'Backpace';
 
     if (isLetter) {
         if (currentLetter) {
@@ -51,7 +55,8 @@ document.getElementById('game').addEventListener('keyup', ev => {
             currentWord.appendChild(incorrectLetter);
         }
     }
-    if(isSpace) {
+
+    if (isSpace) {
         if(expected !== ' ') {
             const lettersToInvalidate = [...document.querySelectorAll('.word.current .letter:not(.correct)')];
             lettersToInvalidate.forEach(letter => {
@@ -65,6 +70,23 @@ document.getElementById('game').addEventListener('keyup', ev => {
             removeClass(currentLetter, 'current')
         }
         addClass(currentWord.nextSibling.firstChild, 'current')
+    }
+    if (isBackspace) {
+        if (currentLetter && is)
+    }
+
+    // move cursor
+    const nextLetter = document.querySelector('.letter.current');
+    const nextWord = document.querySelector('.word.current');
+    const cursor = document.getElementById('cursor')
+    
+    if (nextLetter) {
+        cursor.style.top = nextLetter.getBoundingClientRect().top + 2 + 'px';
+        cursor.style.left = nextLetter.getBoundingClientRect().left + 'px';
+        
+    } else {
+        cursor.style.top = nextWord.getBoundingClientRect().top + 10 + 'px';
+        cursor.style.left = nextWord.getBoundingClientRect().right + 'px';
     }
 })
 
