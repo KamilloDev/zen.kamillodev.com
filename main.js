@@ -13,7 +13,7 @@ function removeClass(el, name) {
 
 function randWord() {
     const randomIndex = Math.ceil(Math.random() * wordsCount);
-    return words[randomIndex];
+    return words[randomIndex - 1];
 }
 
 function formatWord(word) {
@@ -32,9 +32,40 @@ function restart() {
 document.getElementById('game').addEventListener('keyup', ev => {
     const key = ev.key;
     const currentLetter = document.querySelector('.letter.current');
-    const expected = currentLetter.innerHTML;
-    console.log({key, expected})
+    const currentWord = document.querySelector('.word.current');
+    const expected = currentLetter?.innerHTML || '  ';
+    const isLetter = key.length === 1 && key !== ' ';
+    const isSpace = key === ' ';
 
+    if (isLetter) {
+        if (currentLetter) {
+            addClass(currentLetter, key === expected ? 'correct' : 'incorrect');
+            removeClass(currentLetter, 'current');
+            if (currentLetter.nextSibling) {
+                addClass(currentLetter.nextSibling, 'current');
+            } 
+        } else {
+            const incorrectLetter = document.createElement('span');
+            incorrectLetter.innerHTML = key;
+            incorrectLetter.className = 'letter incorrect extra';
+            currentWord.appendChild(incorrectLetter);
+        }
+    }
+    if(isSpace) {
+        if(expected !== ' ') {
+            const lettersToInvalidate = [...document.querySelectorAll('.word.current .letter:not(.correct)')];
+            lettersToInvalidate.forEach(letter => {
+                addClass(letter, 'incorrect')
+                
+            })
+        }
+        removeClass(currentWord, 'current');
+        addClass(currentWord.nextSibling, 'current');
+        if(currentLetter) {
+            removeClass(currentLetter, 'current')
+        }
+        addClass(currentWord.nextSibling.firstChild, 'current')
+    }
 })
 
 restart();

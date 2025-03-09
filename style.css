@@ -36,6 +36,9 @@ div#game {
     overflow: hidden;
     position: relative;
 }
+div#game:focus {
+    outline: 0;
+}
 
 div.word {
     display: inline-block;
@@ -100,4 +103,30 @@ div.word {
 
 .letter.incorrect {
     color: #f55;
+}
+
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+#cursor {
+    display: none;
+    width: 2px;
+    height: 1.6rem;
+    background-color: #fff;
+    position: fixed;
+    top: 191px;
+    left: 80px;
+    animation: blink 1s infinite;
+}
+
+#game:focus #cursor {
+    display: block;
 }
