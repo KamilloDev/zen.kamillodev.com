@@ -94,3 +94,10 @@ div.word {
     margin-left: 3.7%;
 }
 
+.letter.correct {
+    color: #fff;
+}
+
+.letter.incorrect {
+    color: #f55;
+}
