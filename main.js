@@ -71,10 +71,11 @@ document.getElementById('game').addEventListener('keydown', ev => {
         }
         addClass(currentWord.nextSibling.firstChild, 'current')
     }
+    /*
     if (isBackspace) {
         if (currentLetter && is)
     }
-
+    */
     // move cursor
     const nextLetter = document.querySelector('.letter.current');
     const nextWord = document.querySelector('.word.current');
