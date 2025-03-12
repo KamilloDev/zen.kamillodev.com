@@ -125,6 +125,7 @@ div.word {
     top: 191px;
     left: 80px;
     animation: blink 1s infinite;
+    transition: top 0.2s ease, left 0.2s ease;
 }
 
 #game:focus #cursor {

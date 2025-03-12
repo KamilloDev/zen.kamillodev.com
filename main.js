@@ -3,6 +3,13 @@ const words = 'apple, astronaut, balloon, battery, beach, bicycle, book, bridge,
 const wordsCount = words.length;
 const wordsGenerated = 200;
 
+function startCursor() {
+    const cursor = document.getElementById('cursor')
+    const letter = document.querySelector('.letter.current')
+    cursor.style.top = letter.getBoundingClientRect().top + 2 + 'px';
+    cursor.style.left = letter.getBoundingClientRect().left + 'px';
+  }  
+
 function addClass(el, name) {
     el.className += ' ' + name;
 }
@@ -27,9 +34,7 @@ function restart() {
     }
     addClass(document.querySelector('.word'), 'current');
     addClass(document.querySelector('.letter'), 'current');
-    const cursor = document.getElementById('cursor')
-    cursor.style.top = 191 + 'px';
-    cursor.style.left = 80 + 'px';
+    startCursor()
 }
 
 document.getElementById('game').addEventListener('keydown', ev => {
